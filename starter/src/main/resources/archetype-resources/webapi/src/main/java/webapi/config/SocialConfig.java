@@ -1,0 +1,108 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+
+package ${package}.webapi.config;
+
+import javax.inject.Inject;
+
+import ${package}.core.user.User;
+import ${package}.social.connection.SocialConnectionRepository;
+import ${package}.social.core.SocialConnectionService;
+import ${package}.social.core.SocialServiceLocator;
+import ${package}.social.core.SocialServiceRegistry;
+import ${package}.social.core.SocialUsersConnectionService;
+import ${package}.social.facebook.FacebookService;
+import ${package}.social.google.GooglePlusService;
+import ${package}.social.mervid.MervidService;
+import ${package}.social.mervid.connect.MervidConnectionFactory;
+import ${package}.web.SessionCredentials;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.core.env.Environment;
+import org.springframework.social.connect.ConnectionSignUp;
+import org.springframework.social.facebook.connect.FacebookConnectionFactory;
+import org.springframework.social.google.connect.GoogleConnectionFactory;
+
+
+@Configuration
+public class SocialConfig {
+	@Inject
+	private Environment env;
+	
+	@Bean
+	public SocialServiceLocator socialServiceLocator() {
+		SocialServiceRegistry registry = new SocialServiceRegistry();
+		registry.addSocialService(facebookService());
+		registry.addSocialService(googlePlusService());
+		registry.addSocialService(mervidService());
+		
+		return registry;
+	}
+	
+	@Bean
+	public SocialUsersConnectionService usersConnectionRepository(SocialServiceLocator locator,
+			SocialConnectionRepository repository, ConnectionSignUp connectionSignUp) {
+		SocialUsersConnectionService s = new SocialUsersConnectionService(locator, repository);
+		s.setConnectionSignUp(connectionSignUp);
+		
+		return s;
+	}
+	
+	@Bean
+	@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+	public SocialConnectionService connectionRepository(SocialUsersConnectionService usersConnectionRepository) {
+		User user = SessionCredentials.getCurrentUser();
+		
+		if (user == null) return null;
+		
+		return usersConnectionRepository.createConnectionRepository(user.getId());
+	}
+	
+	@Bean
+	public FacebookService facebookService() {
+		String appId = env.getProperty("social.facebook.appId");
+		String appSecret = env.getProperty("social.facebook.appSecret");
+		String redirectUri = env.getProperty("social.facebook.redirectUri");
+		String scope = env.getProperty("social.facebook.scope");
+		
+		FacebookConnectionFactory factory = new FacebookConnectionFactory(appId, appSecret);
+		FacebookService facebookService = new FacebookService(factory);
+		facebookService.setRedirectUri(redirectUri);
+		facebookService.setScope(scope);
+		
+		return facebookService;
+	}
+	
+	@Bean
+	public GooglePlusService googlePlusService() {
+		String appId = env.getProperty("social.google.appId");
+		String appSecret = env.getProperty("social.google.appSecret");
+		String redirectUri = env.getProperty("social.google.redirectUri");
+		String scope = env.getProperty("social.google.scope");
+		
+		GoogleConnectionFactory factory = new GoogleConnectionFactory(appId, appSecret);
+		GooglePlusService gPlusService = new GooglePlusService(factory);
+		gPlusService.setRedirectUri(redirectUri);
+		gPlusService.setScope(scope);
+		
+		return gPlusService;
+	}
+	
+	@Bean
+	public MervidService mervidService() {
+		String appId = env.getProperty("social.mervid.appId");
+		String appSecret = env.getProperty("social.mervid.appSecret");
+		String redirectUri = env.getProperty("social.mervid.redirectUri");
+		String scope = env.getProperty("social.mervid.scope");
+		
+		MervidConnectionFactory factory = new MervidConnectionFactory(appId, appSecret);
+		MervidService mervidService = new MervidService(factory);
+		mervidService.setRedirectUri(redirectUri);
+		mervidService.setScope(scope);
+		
+		return mervidService;
+	}
+}

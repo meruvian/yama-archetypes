@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+	name="yama"
+	xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<fileSets>
+		<fileSet encoding="UTF-8">
+			<directory>src/main/webapp</directory>
+			<includes>
+				<include>**/*.gitignore</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>webapp/app</directory>
+			<includes>
+				<include>**/*.txt</include>
+				<include>**/*.html</include>
+				<include>**/*.js</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>webapp</directory>
+			<includes>
+				<include>**/*.json</include>
+			</includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory>webapp</directory>
+			<includes>
+				<include>**/*.jshintignore</include>
+				<include>**/*.bowerrc</include>
+				<include>**/*.gitignore</include>
+				<include>**/*.md</include>
+				<include>**/*.yml</include>
+				<include>**/*.gitattributes</include>
+				<include>**/*.jshintrc</include>
+				<include>*.js</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>webapp/test</directory>
+			<includes>
+				<include>**/*.js</include>
+			</includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory>webapp/app</directory>
+			<includes>
+				<include>**/*.css</include>
+				<include>**/*.htaccess</include>
+				<include>**/*.ico</include>
+				<include>**/*.gif</include>
+				<include>**/*.gitignore</include>
+				<include>**/*.png</include>
+				<include>**/*.buildignore</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>.project</include>
+			</includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>LICENSE</include>
+				<include>package.json</include>
+				<include>.editorconfig</include>
+				<include>.gitignore</include>
+				<include>README.md</include>
+				<include>Gruntfile.js</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+	<modules>
+		<module id="${rootArtifactId}-social" dir="social"
+			name="${rootArtifactId}-social">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory></directory>
+					<includes>
+						<include>.gitignore</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}-core" dir="core"
+			name="${rootArtifactId}-core">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory></directory>
+					<includes>
+						<include>.gitignore</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}-webapi" dir="webapi"
+			name="${rootArtifactId}-webapi">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.txt</include>
+						<include>**/*.xml</include>
+						<include>**/*.html</include>
+						<include>**/*.properties</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.otf</include>
+						<include>**/*.css</include>
+						<include>**/*.svg</include>
+						<include>**/*.gif</include>
+						<include>**/*.gitignore</include>
+						<include>**/*.ttf</include>
+						<include>**/*.csv</include>
+						<include>**/*.png</include>
+						<include>**/*.js</include>
+						<include>**/*.eot</include>
+						<include>**/*.woff</include>
+						<include>**/*.ico</include>
+						<include>**/*.yml</include>
+						<include>**/*.ftl</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory>src/main/webapp</directory>
+					<includes>
+						<include>**/*.gitignore</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory>src/test/resources</directory>
+					<includes>
+						<include>**/*.yml</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory></directory>
+					<includes>
+						<include>.gitignore</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+	</modules>
+</archetype-descriptor>
