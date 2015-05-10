@@ -17,7 +17,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticationConverter;
 import org.springframework.util.StringUtils;
 
-
 public class UserTokenConverter extends DefaultUserAuthenticationConverter {
 	protected static final String USER_ID = "user_id";
 	

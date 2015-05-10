@@ -35,32 +35,27 @@ module.exports = function (grunt) {
 				tasks: ['wiredep']
 			},
 			js: {
-				files: ['<%= yama.app %>/scripts/{,*/}*.js'],
-				tasks: ['newer:jshint:all'],
+				files: ['<%= yama.app %>/**/*.js'],
+				tasks: ['injector', 'newer:jshint:all'],
 				options: {
 					livereload: '<%= connect.options.livereload %>'
 				}
 			},
 			jsTest: {
-				files: ['test/spec/{,*/}*.js'],
+				files: ['<%= yama.app %>/**/*.spec.js'],
 				tasks: ['newer:jshint:test', 'karma']
 			},
 			styles: {
-				files: ['<%= yama.app %>/styles/{,*/}*.css'],
-				tasks: ['newer:copy:styles', 'autoprefixer']
+				files: ['<%= yama.app %>/**/*.css'],
+				tasks: [ 'injector', 'newer:copy:styles', 'autoprefixer']
 			},
 			dev: {
 				files: [
 						'<%= yama.app %>/*.{ico,png,txt}',
-						'<%= yama.app %>/.htaccess',
-						'<%= yama.app %>/images/{,*/}*.{webp}',
+						'<%= yama.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 						'<%= yama.app %>/fonts/{,*/}*.*'
 				],
 				tasks: ['newer:copy:dev']
-			},
-			config: {
-				files: ['config-*-dev.json'],
-				tasks: ['clean:config', 'newer:ngconstant:client-dev']
 			},
 			gruntfile: {
 				files: ['Gruntfile.js']
@@ -70,8 +65,8 @@ module.exports = function (grunt) {
 					livereload: '<%= connect.options.livereload %>'
 				},
 				files: [
-					'<%= yama.app %>/{,*/}*.html',
-					'.tmp/styles/{,*/}*.css',
+					'<%= yama.app %>/**/*.html',
+					'.tmp/**/*.css',
 					'<%= yama.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
 				]
 			}
@@ -82,7 +77,7 @@ module.exports = function (grunt) {
 			options: {
 				port: 8081,
 				// Change this to '0.0.0.0' to access the server from outside.
-				hostname: 'localhost',
+				hostname: '0.0.0.0',
 				livereload: 35729
 			},
 			proxies: [
@@ -154,14 +149,14 @@ module.exports = function (grunt) {
 			all: {
 				src: [
 					'Gruntfile.js',
-					'<%= yama.app %>/scripts/{,*/}*.js'
+					'<%= yama.app %>/**/*.js'
 				]
 			},
 			test: {
 				options: {
 					jshintrc: 'test/.jshintrc'
 				},
-				src: ['test/spec/{,*/}*.js']
+				src: ['<%= yama.app %>/**/*.spec.js']
 			}
 		},
 
@@ -177,7 +172,6 @@ module.exports = function (grunt) {
 					]
 				}]
 			},
-			config: '<%= yama.app %>/scripts/config.js',
 			server: '.tmp'
 		},
 
@@ -193,7 +187,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: '.tmp/styles/',
-					src: '{,*/}*.css',
+					src: '**/*.css',
 					dest: '.tmp/styles/'
 				}]
 			},
@@ -201,7 +195,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: '.tmp/styles/',
-					src: '{,*/}*.css',
+					src: '**/*.css',
 					dest: '.tmp/styles/'
 				}]
 			}
@@ -210,7 +204,7 @@ module.exports = function (grunt) {
 		// Automatically inject Bower components into the app
 		wiredep: {
 			app: {
-				src: ['<%= yama.app %>/index.html'],
+				src: ['<%= yama.app %>/**/*.html'],
 				ignorePath:  /\.\.\//
 			},
 			test: {
@@ -231,6 +225,23 @@ module.exports = function (grunt) {
 			}
 		},
 
+		// Automatically inject scripts and styles into the app
+		injector: {
+			options: {
+				ignorePath: '<%= yama.app %>',
+				addRootSlash: false
+			},
+			local_dependencies: {
+				files: {
+					'<%= yama.app %>/index.html': [
+						'<%= yama.app %>/**/*.js',
+						'!<%= yama.app %>/main/app.js',
+						'<%= yama.app %>/**/*.css'
+					],
+				}
+			}
+		},
+
 		// Renames files for browser caching purposes
 		filerev: {
 			dist: {
@@ -238,6 +249,7 @@ module.exports = function (grunt) {
 					'<%= yama.dist %>/scripts/{,*/}*.js',
 					'<%= yama.dist %>/styles/{,*/}*.css',
 					'<%= yama.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+					'!<%= yama.dist %>/images/default_profile.gif',
 					'<%= yama.dist %>/styles/fonts/*'
 				]
 			}
@@ -264,8 +276,8 @@ module.exports = function (grunt) {
 
 		// Performs rewrites based on filerev and the useminPrepare configuration
 		usemin: {
-			html: ['<%= yama.dist %>/{,*/}*.html'],
-			css: ['<%= yama.dist %>/styles/{,*/}*.css'],
+			html: ['<%= yama.dist %>/**/*.html'],
+			css: ['<%= yama.dist %>/**/*.css'],
 			options: {
 				assetsDirs: [
 					'<%= yama.dist %>',
@@ -335,7 +347,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%= yama.dist %>',
-					src: ['*.html', 'views/{,*/}*.html'],
+					src: ['*.html', '**/*.html'],
 					dest: '<%= yama.dist %>'
 				}]
 			}
@@ -373,7 +385,7 @@ module.exports = function (grunt) {
 						'*.{ico,png,txt}',
 						'.htaccess',
 						'*.html',
-						'views/{,*/}*.html',
+						'**/*.html',
 						'images/{,*/}*.{webp}',
 						'styles/fonts/{,*/}*.*'
 					]
@@ -396,41 +408,15 @@ module.exports = function (grunt) {
 			},
 			styles: {
 				expand: true,
-				cwd: '<%= yama.app %>/styles',
+				cwd: '<%= yama.app %>',
 				dest: '.tmp/styles/',
-				src: '{,*/}*.css'
-			}
-		},
-
-		ngconstant: {
-			options: {
-				dest: '<%= yama.app %>/scripts/config.js',
-				name: 'yama-config',
-				constants: {
-					oauthConfig: {
-						authorizePath: '/oauth/authorize',
-						tokenPath: '/oauth/token',
-						template: 'views/oauth2.html',
-						responseType: 'token'
-					}
-				}
-			},
-			'client-dev': {
-				constants: {
-					oauthConfig: grunt.file.readJSON('config-client-dev.json').oauth
-				}
-			},
-			'server-dev': {
-				constants: {
-					oauthConfig: grunt.file.readJSON('config-server-dev.json').oauth
-				}
+				src: '**/*.css'
 			}
 		},
 
 		// Run some tasks in parallel to speed up the build process
 		concurrent: {
 			dev: [
-				'ngconstant:client-dev',
 				'copy:styles'
 			],
 			test: [
@@ -438,7 +424,6 @@ module.exports = function (grunt) {
 			],
 			dist: [
 				'copy:styles',
-				'ngconstant:server-dev',
 				'imagemin',
 				'svgmin'
 			]
@@ -463,6 +448,7 @@ module.exports = function (grunt) {
 			'clean:server',
 			'concurrent:dev',
 			'wiredep',
+			'injector',
 			'jshint:config',
 			'autoprefixer:server',
 			'configureProxies',
@@ -479,6 +465,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 		'clean:server',
 		'wiredep',
+		'injector',
 		'concurrent:test',
 		'autoprefixer',
 		'connect:test',
@@ -488,6 +475,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', [
 		'clean:dist',
 		'wiredep',
+		'injector',
 		'useminPrepare',
 		'concurrent:dist',
 		'autoprefixer',

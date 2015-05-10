@@ -20,7 +20,6 @@ import ${package}.core.user.User;
 import ${package}.web.SessionCredentials;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class LogInformationListener implements PreInsertEventListener, PreUpdateEventListener {
 	@Inject

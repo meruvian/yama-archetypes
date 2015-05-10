@@ -21,7 +21,6 @@ import ${package}.core.DefaultPersistence;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "${parentArtifactId}_application", indexes = { @Index(columnList = "create_by", unique = false) })
 public class Application extends DefaultPersistence {

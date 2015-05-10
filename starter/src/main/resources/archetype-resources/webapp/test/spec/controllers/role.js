@@ -6,7 +6,7 @@
 describe('Controller: RoleCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('yamaAppApp'));
+  beforeEach(module('${artifactId}App'));
 
   var RoleCtrl,
     scope;

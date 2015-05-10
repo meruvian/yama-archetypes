@@ -4,7 +4,6 @@
 
 package ${package}.web;
 
-
 public interface CredentialsService {
 	void registerAuthentication(String userId);
 }

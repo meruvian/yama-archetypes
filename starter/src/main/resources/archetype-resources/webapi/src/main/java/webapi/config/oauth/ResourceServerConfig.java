@@ -18,7 +18,6 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
-
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
@@ -59,7 +58,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.antMatchers("/**").fullyAuthenticated()
 				.and()
 			.sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
 				.and()
 			.userDetailsService(clientDetailsUserDetailsService)
 			.anonymous().disable()

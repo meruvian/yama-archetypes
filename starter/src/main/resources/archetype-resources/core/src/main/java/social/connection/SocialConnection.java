@@ -15,7 +15,6 @@ import javax.persistence.UniqueConstraint;
 import ${package}.core.DefaultPersistence;
 import ${package}.core.user.User;
 
-
 @Entity
 @Table(name = "${parentArtifactId}_social_connection", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "user_id", "provider", "rank" }),

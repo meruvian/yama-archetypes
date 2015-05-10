@@ -13,7 +13,6 @@ import javax.persistence.UniqueConstraint;
 import ${package}.core.DefaultPersistence;
 import ${package}.core.user.User;
 
-
 @Entity
 @Table(name = "${parentArtifactId}_user_role", uniqueConstraints = @UniqueConstraint(columnNames = { "role_id", "user_id" }))
 public class UserRole extends DefaultPersistence {

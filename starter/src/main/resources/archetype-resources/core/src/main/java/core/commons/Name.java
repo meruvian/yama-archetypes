@@ -7,7 +7,6 @@ package ${package}.core.commons;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-
 @Embeddable
 public class Name {
 	private String prefix;

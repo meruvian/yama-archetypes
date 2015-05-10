@@ -27,7 +27,6 @@ import ${package}.core.role.UserRole;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "${parentArtifactId}_backend_user")
 public class User extends DefaultPersistence {

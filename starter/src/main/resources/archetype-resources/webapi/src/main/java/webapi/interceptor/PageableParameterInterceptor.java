@@ -19,7 +19,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-
 @Provider
 @Component
 public class PageableParameterInterceptor implements ContainerRequestFilter, ReaderInterceptor {

@@ -18,7 +18,6 @@ import org.springframework.social.google.api.Google;
 import org.springframework.social.google.api.plus.Person;
 import org.springframework.web.client.RestTemplate;
 
-
 public class GooglePlusService extends AbstractSocialService<Google> {
 	private static final Logger LOG = LoggerFactory.getLogger(GooglePlusService.class);
 	

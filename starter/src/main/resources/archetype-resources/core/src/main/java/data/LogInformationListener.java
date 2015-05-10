@@ -15,7 +15,6 @@ import ${package}.core.LogInformation;
 import ${package}.core.user.User;
 import ${package}.web.SessionCredentials;
 
-
 public class LogInformationListener implements PreInsertEventListener, PreUpdateEventListener {
 	private String getCurrentUserId() {
 		User user = SessionCredentials.getCurrentUser();

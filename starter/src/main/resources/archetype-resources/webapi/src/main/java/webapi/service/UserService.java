@@ -27,7 +27,6 @@ import ${package}.webapi.interceptor.DetectCurrentUser;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-
 @Path("/api/users")
 @Produces(MediaType.APPLICATION_JSON)
 @DetectCurrentUser

@@ -23,7 +23,6 @@ import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Service
 @Transactional
 public class RestSignUpService implements SignUpService, ConnectionSignUp, EnvironmentAware {

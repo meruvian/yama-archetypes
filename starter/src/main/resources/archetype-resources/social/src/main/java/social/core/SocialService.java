@@ -10,7 +10,6 @@ import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.util.MultiValueMap;
 
-
 public interface SocialService<T> {
 	Connection<T> createConnection(String authorizationCode, MultiValueMap<String, String> additionalParameters);;
 	

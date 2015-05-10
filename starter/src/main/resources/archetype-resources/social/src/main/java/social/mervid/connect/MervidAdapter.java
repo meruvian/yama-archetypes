@@ -12,7 +12,6 @@ import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UserProfileBuilder;
 
-
 public class MervidAdapter implements ApiAdapter<Mervid>{
 
 	@Override

@@ -8,7 +8,6 @@ import ${package}.core.DefaultRepository;
 import org.springframework.stereotype.Repository;
 
 
-
 @Repository
 public interface FileInfoRepository extends DefaultRepository<FileInfo> {
 

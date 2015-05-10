@@ -7,7 +7,6 @@ package ${package}.social.mervid.api;
 import ${package}.core.user.User;
 import org.springframework.web.client.RestTemplate;
 
-
 public class UserTemplate implements UserOperations {
 	private RestTemplate restTemplate;
 

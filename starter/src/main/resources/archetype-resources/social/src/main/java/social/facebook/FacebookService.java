@@ -17,7 +17,6 @@ import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.FacebookProfile;
 import org.springframework.social.facebook.api.ImageType;
 
-
 public class FacebookService extends AbstractSocialService<Facebook> {
 	public FacebookService(OAuth2ConnectionFactory<Facebook> facebook) {
 		super(facebook);

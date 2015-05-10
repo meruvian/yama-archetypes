@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class UserRegisteredListener implements PostInsertEventListener {
 	private final Logger log = LoggerFactory.getLogger(UserRegisteredListener.class);

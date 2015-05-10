@@ -14,7 +14,6 @@ import javax.persistence.Transient;
 
 import ${package}.core.DefaultPersistence;
 
-
 @Entity
 @Table(name = "${parentArtifactId}_file_info")
 public class FileInfo extends DefaultPersistence {

@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.oauth2.provider.approval.ApprovalStore;
 
-
 public interface OauthApplicationApprovalService extends ApprovalStore {
 	OauthApplicationApproval getApprovalById(String id);
 	

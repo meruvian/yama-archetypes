@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-
 @NoRepositoryBean
 public interface DefaultRepository<T extends DefaultPersistence> extends PagingAndSortingRepository<T, String> {
 	T findById(String id);

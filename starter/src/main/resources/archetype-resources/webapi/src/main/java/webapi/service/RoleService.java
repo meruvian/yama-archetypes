@@ -19,7 +19,6 @@ import ${package}.core.role.Role;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-
 @Path("/api/roles")
 @Produces(MediaType.APPLICATION_JSON)
 public interface RoleService {

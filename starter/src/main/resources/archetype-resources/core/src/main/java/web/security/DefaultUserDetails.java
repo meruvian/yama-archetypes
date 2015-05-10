@@ -9,7 +9,6 @@ import java.util.Collection;
 import ${package}.core.user.User;
 import org.springframework.security.core.GrantedAuthority;
 
-
 public class DefaultUserDetails extends org.springframework.security.core.userdetails.User {
 	private String id;
 	private User user;

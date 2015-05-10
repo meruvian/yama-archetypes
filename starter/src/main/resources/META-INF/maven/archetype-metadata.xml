@@ -8,6 +8,7 @@
 		<fileSet encoding="UTF-8">
 			<directory>src/main/webapp</directory>
 			<includes>
+				<include>**/*.html</include>
 				<include>**/*.gitignore</include>
 			</includes>
 		</fileSet>

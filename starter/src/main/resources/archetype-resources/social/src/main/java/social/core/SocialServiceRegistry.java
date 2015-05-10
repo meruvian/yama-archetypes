@@ -10,7 +10,6 @@ import java.util.List;
 import org.springframework.social.connect.ConnectionFactory;
 import org.springframework.social.connect.support.ConnectionFactoryRegistry;
 
-
 public class SocialServiceRegistry extends ConnectionFactoryRegistry implements SocialServiceLocator {
 	private List<SocialService<?>> socialServices = new ArrayList<SocialService<?>>();
 	

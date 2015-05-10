@@ -18,7 +18,6 @@ import javax.persistence.UniqueConstraint;
 import ${package}.core.DefaultPersistence;
 import ${package}.core.application.Application;
 
-
 @Entity
 @Table(name = "${parentArtifactId}_oauth_application_approval", uniqueConstraints = { @UniqueConstraint(columnNames = {"application_id", "create_by", "scope"}) })
 public class OauthApplicationApproval extends DefaultPersistence {

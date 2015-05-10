@@ -25,7 +25,6 @@ import ${package}.core.DefaultRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 public interface SocialConnectionRepository extends DefaultRepository<SocialConnection> {
 	List<SocialConnection> findByUserIdOrderByRankAsc(String userId);

@@ -20,7 +20,6 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-
 @Service
 public class EmailService {
 	private final Logger log = LoggerFactory.getLogger(EmailService.class);

@@ -25,7 +25,6 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

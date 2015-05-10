@@ -6,7 +6,6 @@ package ${package}.social.mervid.api;
 
 import ${package}.core.user.User;
 
-
 public interface UserOperations {
 	User getUser();
 }

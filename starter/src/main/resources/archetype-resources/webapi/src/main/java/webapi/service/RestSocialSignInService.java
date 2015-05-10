@@ -21,7 +21,6 @@ import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class RestSocialSignInService implements SocialSignInService {
 	public static final String OAUTH_AUTH_URL = "/oauth/authorize";

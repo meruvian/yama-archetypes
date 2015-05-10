@@ -19,7 +19,6 @@ import ${package}.core.application.Application;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-
 @Path("/api/applications")
 @Produces(MediaType.APPLICATION_JSON)
 public interface ApplicationService {

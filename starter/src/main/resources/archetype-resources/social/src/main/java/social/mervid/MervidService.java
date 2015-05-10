@@ -14,7 +14,6 @@ import ${package}.social.mervid.api.Mervid;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 
-
 public class MervidService extends AbstractSocialService<Mervid>{
 	public MervidService(OAuth2ConnectionFactory<Mervid> connectionFactory) {
 		super(connectionFactory);

@@ -6,9 +6,6 @@ package ${package}.social.core;
 
 import org.springframework.social.connect.ConnectionFactoryLocator;
 
-
-
-
 public interface SocialServiceLocator extends ConnectionFactoryLocator {
 	SocialService<?> getSocialService(String name);
 	

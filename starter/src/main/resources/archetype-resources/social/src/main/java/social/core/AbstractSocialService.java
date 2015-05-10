@@ -13,7 +13,6 @@ import org.springframework.social.oauth2.GrantType;
 import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.util.MultiValueMap;
 
-
 public abstract class AbstractSocialService<T> implements SocialService<T> {
 	protected OAuth2ConnectionFactory<T> connectionFactory;
 	

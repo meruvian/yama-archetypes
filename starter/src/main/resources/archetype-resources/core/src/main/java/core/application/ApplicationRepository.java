@@ -24,8 +24,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-
-
 @Repository
 public interface ApplicationRepository extends DefaultRepository<Application> {
 	Application findByNamespace(String name);

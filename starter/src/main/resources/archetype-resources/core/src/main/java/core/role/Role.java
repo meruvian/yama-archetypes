@@ -19,7 +19,6 @@ import ${package}.core.DefaultPersistence;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "${parentArtifactId}_workflow_role")
 public class Role extends DefaultPersistence {

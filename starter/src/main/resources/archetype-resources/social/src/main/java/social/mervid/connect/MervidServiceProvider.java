@@ -9,7 +9,6 @@ import ${package}.social.mervid.api.MervidTemplate;
 import org.springframework.social.oauth2.AbstractOAuth2ServiceProvider;
 import org.springframework.social.oauth2.OAuth2Template;
 
-
 public class MervidServiceProvider extends AbstractOAuth2ServiceProvider<Mervid> {
 
 	public MervidServiceProvider(String clientId, String clientSecret) {

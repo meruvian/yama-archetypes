@@ -6,7 +6,6 @@ package ${package}.social.mervid.api;
 
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 
-
 public class MervidTemplate extends AbstractOAuth2ApiBinding implements Mervid {
 	private UserOperations userOperations;
 	

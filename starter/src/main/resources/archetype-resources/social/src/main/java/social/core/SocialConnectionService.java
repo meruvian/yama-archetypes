@@ -28,7 +28,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-
 @Transactional(readOnly = true)
 public class SocialConnectionService implements ConnectionRepository {
 	private ServiceProviderConnectionMapper connectionMapper = new ServiceProviderConnectionMapper();

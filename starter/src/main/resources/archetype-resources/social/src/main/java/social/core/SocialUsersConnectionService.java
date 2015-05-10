@@ -19,7 +19,6 @@ import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Transactional(readOnly = true)
 public class SocialUsersConnectionService implements UsersConnectionRepository {
 	private ConnectionFactoryLocator connectionFactoryLocator;

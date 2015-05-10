@@ -17,7 +17,6 @@ import org.springframework.core.env.Environment;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-
 @Configuration
 public class DatabaseConfig implements EnvironmentAware {
 	private RelaxedPropertyResolver dbProp;

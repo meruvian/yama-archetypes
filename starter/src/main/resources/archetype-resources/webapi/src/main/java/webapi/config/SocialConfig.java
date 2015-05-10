@@ -26,7 +26,6 @@ import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
 
-
 @Configuration
 public class SocialConfig {
 	@Inject

@@ -11,7 +11,6 @@ import javax.persistence.MappedSuperclass;
 
 import org.hibernate.annotations.GenericGenerator;
 
-
 @MappedSuperclass
 public class DefaultPersistence {
 	protected String id;

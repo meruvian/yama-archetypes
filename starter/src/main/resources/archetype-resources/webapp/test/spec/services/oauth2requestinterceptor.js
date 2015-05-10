@@ -6,7 +6,7 @@
 describe('Service: Oauth2RequestInterceptor', function () {
 
   // load the service's module
-  beforeEach(module('yamaAppApp'));
+  beforeEach(module('${artifactId}App'));
 
   // instantiate service
   var Oauth2RequestInterceptor;

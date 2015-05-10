@@ -20,7 +20,6 @@ import org.springframework.security.oauth2.provider.approval.Approval;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Service("oauthApplicationApprovalService")
 public class DefaultOauthApplicationApprovalService implements OauthApplicationApprovalService {
 	@Inject
