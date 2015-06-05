@@ -2,7 +2,7 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="left-side sidebar-offcanvas" ng-controller="SidenavCtrl">
+<aside class="main-sidebar" ng-controller="SidenavCtrl">
 	<!-- sidebar: style can be found in sidebar.less -->
 	<section class="sidebar">
 		<!-- Sidebar user panel -->
@@ -32,17 +32,17 @@
 				<ul class="treeview-menu">
 					<li>
 						<a ui-sref="backend.role">
-							<i class="fa fa-angle-double-right"></i> Role
+							<i class="fa fa-angle-double-right"></i> <span>Role</span>
 						</a>
 					</li>
 					<li>
 						<a ui-sref="backend.user">
-							<i class="fa fa-angle-double-right"></i> User
+							<i class="fa fa-angle-double-right"></i> <span>User</span>
 						</a>
 					</li>
 				</ul>
 			</li>
-			<li class="active">
+			<li>
 				<a ui-sref="backend.application">
 					<i class="fa fa-cube"></i> <span>Applications</span>
 				</a>
@@ -51,6 +51,7 @@
 	</section>
 	<!-- /.sidebar -->
 </aside>
-<!-- build:js({.tmp,app}) scripts/dashboard.js -->
-<script src="backend/backend.js"></script>
+<!-- build:js(.) scripts/app.js -->
+<script src="bower_components/admin-lte/plugins/slimScroll/jquery.slimscroll.js"></script>
+<script src="bower_components/admin-lte/dist/js/app.js"></script>
 <!-- endbuild -->

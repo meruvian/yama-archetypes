@@ -19,14 +19,14 @@ angular.module('${artifactId}App', [
 	'ui.bootstrap',
 	'ui.select',
 	'ui.router',
-	'angular-oauth2',
 	'angular-loading-bar',
 	'restangular',
 	'angularPopupBoxes',
 	'angularFileUpload',
 	'validation',
 	'validation.rule',
-	'validation.schema'
+	'validation.schema',
+	'yamaOauth'
 ]).config(function (${symbol_dollar}locationProvider, $urlRouterProvider) {
 	${symbol_dollar}locationProvider.html5Mode(false).hashPrefix('!');
 
@@ -52,14 +52,11 @@ angular.module('${artifactId}App', [
 	// UI-Select
 	uiSelectConfig.theme = 'bootstrap';
 	uiSelectConfig.resetSearchInput = true;
-}).config(function(OAuthProvider) {
-	OAuthProvider.configure({
-		baseUrl: location.protocol + '//' + location.host,
+}).config(function(YamaOAuthProvider) {
+	YamaOAuthProvider.configure({
+		scope: 'read write',
 		clientId: 'yama',
-		clientSecret: 'yamameruvianorgsecret',
-		authorizePath: '/oauth/authorize',
-		grantPath: '/oauth/token',
-		revokePath: '/oauth/revoke'
+		redirectUri: '/'
 	});
 }).config(function(${symbol_dollar}validationProvider) {
 	${symbol_dollar}validationProvider.showSuccessMessage = false;
@@ -85,42 +82,33 @@ angular.module('${artifactId}App', [
 	${symbol_dollar}validationProvider.setSuccessHTML(function (msg) {
 		return '<p class=\"text-success\">' + msg + '</p>';
 	});
-}).run(function(${symbol_dollar}rootScope, ${symbol_dollar}state, OAuth, OAuthToken, Users, ProfilePictures) {
+}).run(function(${symbol_dollar}rootScope, YamaOAuth, Users, ProfilePictures) {
 	${symbol_dollar}rootScope.${symbol_dollar}state = {};
 
-	${symbol_dollar}rootScope.$on('${symbol_dollar}stateChangeSuccess', function(event, toState, toParams) {
-		${symbol_dollar}rootScope.${symbol_dollar}state.current = toState;
-		${symbol_dollar}rootScope.${symbol_dollar}state.current.params = toParams;
+	if (!YamaOAuth.isAuthorized()) {
+		YamaOAuth.login();
+	} else {
+		if (!${symbol_dollar}rootScope.currentUser) {
+			Users.one('me').get().then(function(user) {
+				${symbol_dollar}rootScope.currentUser = user;
 
-		if (OAuth.isAuthenticated()) {
-			if (!${symbol_dollar}rootScope.currentUser) {
-				Users.one('me').get().then(function(user) {
-					${symbol_dollar}rootScope.currentUser = user;
-
-					ProfilePictures.reloadPhoto();
-				});
-			}
+				ProfilePictures.reloadPhoto();
+			});
 		}
+	}
+
+	${symbol_dollar}rootScope.$on('oauth:unauthorized', function() {
+		YamaOAuth.login();
 	});
 
 	${symbol_dollar}rootScope.$on('${symbol_dollar}stateChangeStart', function(event, toState, toParams) {
-		if (!OAuth.isAuthenticated() && 'login' !== toState.name) {
+		if (!YamaOAuth.isAuthorized()) {
 			event.preventDefault();
 
 			${symbol_dollar}rootScope.${symbol_dollar}state.toState = toState;
 			${symbol_dollar}rootScope.${symbol_dollar}state.toState.params = toParams;
 
-			${symbol_dollar}state.go('login');
+			YamaOAuth.login();
 		}
-	});
-
-	${symbol_dollar}rootScope.$on('oauth:error', function() {
-		if (OAuthToken.getRefreshToken()) {
-			OAuth.getRefreshToken();
-		} else {
-			${symbol_dollar}state.go('main');
-		}
-
-		OAuthToken.removeToken();
 	});
 });

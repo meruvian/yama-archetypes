@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 'use strict';
 
-angular.module('${artifactId}App').factory('ProfilePictures', function (Users, OAuthToken, ${symbol_dollar}upload, ${symbol_dollar}rootScope) {
+angular.module('${artifactId}App').factory('ProfilePictures', function (Users, YamaOAuth, ${symbol_dollar}upload, ${symbol_dollar}rootScope) {
 	return {
 		uploadPhoto: function (file, progress, success, error) {
 			var fileReader = new FileReader();
@@ -19,7 +19,7 @@ angular.module('${artifactId}App').factory('ProfilePictures', function (Users, O
 			};
 		},
 		getPhotoUrl: function() {
-			return Users.one('me').one('photo').getRequestedUrl() + '?access_token=' + OAuthToken.getAccessToken();
+			return Users.one('me').one('photo').getRequestedUrl() + '?access_token=' + YamaOAuth.getAccessToken().access_token;
 		},
 		reloadPhoto: function() {
 			${symbol_dollar}rootScope.currentUserPhoto = this.getPhotoUrl() + '&cache=' + (new Date()).getTime();
