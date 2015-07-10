@@ -8,6 +8,5 @@ angular.module('${artifactId}App').controller('LoginCtrl', function () {
 }).controller('LogoutCtrl', function(${symbol_dollar}state, ${symbol_dollar}http, YamaOAuth) {
 	${symbol_dollar}http.get('/auth/logout').success(function() {
 		YamaOAuth.logout();
-		${symbol_dollar}state.go('main');
 	});
 });

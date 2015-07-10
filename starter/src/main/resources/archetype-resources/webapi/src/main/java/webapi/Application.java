@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = { SocialWebAutoConfiguration.class })
-@ComponentScan({ "${package}" })
+@ComponentScan({ "org.meruvian.yama", "${package}" })
 public class Application {
 	public static final String PROFILE_DEV = "dev";
 	public static final String PROFILE_PROD = "prod";

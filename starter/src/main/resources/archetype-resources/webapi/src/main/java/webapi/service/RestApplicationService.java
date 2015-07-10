@@ -7,10 +7,10 @@ package ${package}.webapi.service;
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import ${package}.core.LogInformation;
-import ${package}.core.application.Application;
-import ${package}.core.application.Application.GrantType;
-import ${package}.core.application.ApplicationRepository;
+import org.meruvian.yama.core.LogInformation;
+import org.meruvian.yama.core.application.Application;
+import org.meruvian.yama.core.application.Application.GrantType;
+import org.meruvian.yama.core.application.ApplicationRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

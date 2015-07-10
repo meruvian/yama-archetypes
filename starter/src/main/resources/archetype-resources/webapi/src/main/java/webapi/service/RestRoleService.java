@@ -8,9 +8,9 @@ import javax.inject.Inject;
 import javax.ws.rs.BadRequestException;
 
 import org.apache.commons.lang3.StringUtils;
-import ${package}.core.LogInformation;
-import ${package}.core.role.Role;
-import ${package}.core.role.RoleRepository;
+import org.meruvian.yama.core.LogInformation;
+import org.meruvian.yama.core.role.Role;
+import org.meruvian.yama.core.role.RoleRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

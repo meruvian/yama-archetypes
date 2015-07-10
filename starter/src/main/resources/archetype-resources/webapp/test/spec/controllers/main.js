@@ -12,9 +12,9 @@ describe('Controller: MainCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, ${symbol_dollar}rootScope) {
-    scope = ${symbol_dollar}rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+  beforeEach(inject(function (${symbol_dollar}controller, ${symbol_dollar}rootScope) {
+    scope = ${symbol_dollar}rootScope.${symbol_dollar}new();
+    MainCtrl = ${symbol_dollar}controller('MainCtrl', {
       ${symbol_dollar}scope: scope
     });
   }));

@@ -13,9 +13,9 @@ import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
-import ${package}.social.core.SocialService;
-import ${package}.social.core.SocialServiceLocator;
-import ${package}.web.CredentialsService;
+import org.meruvian.yama.social.core.SocialService;
+import org.meruvian.yama.social.core.SocialServiceLocator;
+import org.meruvian.yama.web.CredentialsService;
 import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.UsersConnectionRepository;

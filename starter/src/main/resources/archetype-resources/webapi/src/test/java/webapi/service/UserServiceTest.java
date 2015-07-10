@@ -12,8 +12,8 @@ import javax.validation.ConstraintViolationException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import ${package}.core.role.Role;
-import ${package}.core.user.User;
+import org.meruvian.yama.core.role.Role;
+import org.meruvian.yama.core.user.User;
 import ${package}.webapi.Application;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.data.domain.Page;

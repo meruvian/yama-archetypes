@@ -13,7 +13,7 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.Provider;
 
-import ${package}.web.SessionCredentials;
+import org.meruvian.yama.web.SessionCredentials;
 import org.springframework.stereotype.Component;
 
 /**

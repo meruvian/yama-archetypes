@@ -15,7 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import ${package}.core.application.Application;
+import org.meruvian.yama.core.application.Application;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

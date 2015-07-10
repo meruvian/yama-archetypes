@@ -76,10 +76,10 @@
 		</fileSet>
 	</fileSets>
 	<modules>
-		<module id="${rootArtifactId}-social" dir="social"
-			name="${rootArtifactId}-social">
+		<module id="yama-social" dir="yama-social"
+			name="yama-social">
 			<fileSets>
-				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
 					<directory>src/main/java</directory>
 					<includes>
 						<include>**/*.java</include>
@@ -93,7 +93,24 @@
 				</fileSet>
 			</fileSets>
 		</module>
-		<module id="${rootArtifactId}-core" dir="core"
+		<module id="yama-core" dir="yama-core"
+			name="yama-core">
+			<fileSets>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory></directory>
+					<includes>
+						<include>.gitignore</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}-core" dir="__rootArtifactId__-core"
 			name="${rootArtifactId}-core">
 			<fileSets>
 				<fileSet filtered="true" packaged="true" encoding="UTF-8">

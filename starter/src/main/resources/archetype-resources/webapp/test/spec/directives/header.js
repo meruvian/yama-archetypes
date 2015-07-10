@@ -12,12 +12,12 @@ describe('Directive: header', function () {
     scope;
 
   beforeEach(inject(function (${symbol_dollar}rootScope) {
-    scope = ${symbol_dollar}rootScope.$new();
+    scope = ${symbol_dollar}rootScope.${symbol_dollar}new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  it('should make hidden element visible', inject(function (${symbol_dollar}compile) {
     element = angular.element('<header></header>');
-    element = $compile(element)(scope);
+    element = ${symbol_dollar}compile(element)(scope);
     expect(element.text()).toBe('this is the header directive');
   }));
 });

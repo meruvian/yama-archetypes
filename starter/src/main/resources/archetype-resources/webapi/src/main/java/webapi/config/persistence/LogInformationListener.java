@@ -14,10 +14,10 @@ import org.hibernate.event.spi.PreInsertEvent;
 import org.hibernate.event.spi.PreInsertEventListener;
 import org.hibernate.event.spi.PreUpdateEvent;
 import org.hibernate.event.spi.PreUpdateEventListener;
-import ${package}.core.DefaultPersistence;
-import ${package}.core.LogInformation;
-import ${package}.core.user.User;
-import ${package}.web.SessionCredentials;
+import org.meruvian.yama.core.DefaultPersistence;
+import org.meruvian.yama.core.LogInformation;
+import org.meruvian.yama.core.user.User;
+import org.meruvian.yama.web.SessionCredentials;
 import org.springframework.stereotype.Component;
 
 @Component

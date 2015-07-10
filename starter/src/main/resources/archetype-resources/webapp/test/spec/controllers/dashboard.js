@@ -12,10 +12,10 @@ describe('Controller: DashboardCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function (${artifactId}controller, ${artifactId}rootScope) {
-    scope = ${artifactId}rootScope.${artifactId}new();
-    DashboardCtrl = ${artifactId}controller('DashboardCtrl', {
-      ${artifactId}scope: scope
+  beforeEach(inject(function (${symbol_dollar}controller, ${symbol_dollar}rootScope) {
+    scope = ${symbol_dollar}rootScope.${symbol_dollar}new();
+    DashboardCtrl = ${symbol_dollar}controller('DashboardCtrl', {
+      ${symbol_dollar}scope: scope
     });
   }));
 

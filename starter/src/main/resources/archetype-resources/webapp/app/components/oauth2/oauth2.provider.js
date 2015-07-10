@@ -17,6 +17,23 @@ angular.module('yamaOauth').provider('YamaOAuth', function() {
 	};
 
 	var config = {};
+	var ${symbol_dollar}rootScope, ${symbol_dollar}timeout, Endpoint, AccessToken, Storage;
+
+	var setup = function(${symbol_dollar}injector) {
+		${symbol_dollar}rootScope = ${symbol_dollar}injector.get('${symbol_dollar}rootScope');
+		${symbol_dollar}timeout = ${symbol_dollar}injector.get('${symbol_dollar}timeout');
+		Endpoint = ${symbol_dollar}injector.get('Endpoint');
+		AccessToken = ${symbol_dollar}injector.get('AccessToken');
+		Storage = ${symbol_dollar}injector.get('Storage');
+
+		Storage.use(config.storage);
+		Endpoint.set(config);
+		AccessToken.set(config);
+
+		${symbol_dollar}rootScope.${symbol_dollar}on('oauth:expired', function() {
+			AccessToken.destroy();
+		});
+	};
 
 	this.configure = function(params) {
 		if (!(params instanceof Object)) {
@@ -26,35 +43,39 @@ angular.module('yamaOauth').provider('YamaOAuth', function() {
 		config = angular.extend({}, defaultConfig, params);
 	};
 
-	this.$get = function($injector, Endpoint, AccessToken, Storage) {
-		var ${symbol_dollar}rootScope = $injector.get('$rootScope');
+	this.login = function() {
+		AccessToken.destroy();
+		Endpoint.redirect();
+	};
 
-		Storage.use(config.storage);
-		Endpoint.set(config);
-		AccessToken.set(config);
+	this.logout = function() {
+		AccessToken.destroy();
+		${symbol_dollar}timeout(function() {
+			${symbol_dollar}rootScope.${symbol_dollar}broadcast('oauth:logout');
+		}, 500);
+	};
 
-		${symbol_dollar}rootScope.$on('oauth:expired', function() {
-			AccessToken.destroy();
-		});
+	this.isAuthorized =  function() {
+		return !(AccessToken.get() === null || AccessToken.expired());
+	};
+
+	this.getAccessToken = function() {
+		return AccessToken.get();
+	};
+
+	this.isExpired = function() {
+		return AccessToken.expired();
+	};
+
+	this.${symbol_dollar}get = function(${symbol_dollar}injector) {
+		setup(${symbol_dollar}injector);
 
 		return {
-			login: function() {
-				AccessToken.destroy();
-				Endpoint.redirect();
-			},
-			logout: function() {
-				AccessToken.destroy();
-				${symbol_dollar}rootScope.$broadcast('oauth:logout');
-			},
-			isAuthorized: function() {
-				return !(AccessToken.get() === null || AccessToken.expired());
-			},
-			getAccessToken: function() {
-				return AccessToken.get();
-			},
-			isExpired: function() {
-				return AccessToken.expired();
-			}
+			login: this.login,
+			logout: this.logout,
+			isAuthorized: this.isAuthorized,
+			getAccessToken: this.getAccessToken,
+			isExpired: this.isExpired
 		};
 	};
 });

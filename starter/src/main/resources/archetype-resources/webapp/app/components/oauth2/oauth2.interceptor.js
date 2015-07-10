@@ -3,9 +3,9 @@
 #set( $symbol_escape = '\' )
 'use strict';
 
-angular.module('yamaOauth').factory('YamaOauthInterceptor', function(${symbol_dollar}rootScope, $q, AccessToken) {
+angular.module('yamaOauth').factory('YamaOauthInterceptor', function(${symbol_dollar}rootScope, ${symbol_dollar}q, AccessToken) {
 	return {
-		request: function($config) {
+		request: function(${symbol_dollar}config) {
 			if (AccessToken.get()) {
 				${symbol_dollar}config.headers.Authorization = 'Bearer ' + AccessToken.get().access_token;
 			}

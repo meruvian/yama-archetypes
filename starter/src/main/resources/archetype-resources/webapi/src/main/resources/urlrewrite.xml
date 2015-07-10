@@ -1,0 +1,35 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE urlrewrite
+        PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+	<rule>
+		<condition type="request-uri" operator="notequal">[^${symbol_escape}${symbol_escape}]*${symbol_escape}.(${symbol_escape}w+)${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/login${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/register${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/oauth_approval${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/auth/.*${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/info${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/health${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/env${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/beans${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/trace${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/dump${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/shutdown${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/metrics/.*${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/api/.*${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/oauth/.*${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/assets/.*${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/images/.*${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/fonts/.*${symbol_dollar}</condition>
+		<condition type="request-uri" operator="notequal">^/index.html*${symbol_dollar}</condition>
+
+		<to>/index.html</to>
+	</rule>
+</urlrewrite>

@@ -8,8 +8,8 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import ${package}.core.user.User;
-import ${package}.web.security.DefaultUserDetails;
+import org.meruvian.yama.core.user.User;
+import org.meruvian.yama.web.security.DefaultUserDetails;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -66,6 +66,6 @@ public class UserTokenConverter extends DefaultUserAuthenticationConverter {
 					.collectionToCommaDelimitedString((Collection<?>) authorities));
 		}
 		
-		throw new IllegalArgumentException("Authorities must be either a String or a Collection");
+		return AuthorityUtils.commaSeparatedStringToAuthorityList("");
 	}
 }

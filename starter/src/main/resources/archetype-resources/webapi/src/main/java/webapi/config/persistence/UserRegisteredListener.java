@@ -14,7 +14,7 @@ import org.hibernate.event.spi.EventType;
 import org.hibernate.event.spi.PostInsertEvent;
 import org.hibernate.event.spi.PostInsertEventListener;
 import org.hibernate.persister.entity.EntityPersister;
-import ${package}.core.user.User;
+import org.meruvian.yama.core.user.User;
 import ${package}.webapi.service.commons.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -132,7 +132,7 @@ angular.module('${artifactId}App').controller('UserCtrl', function (${symbol_dol
 			});
 		});
 	};
-}).controller('UserEditRoleFormCtrl', function(${symbol_dollar}scope, ${symbol_dollar}modalInstance, $cacheFactory, Roles, user) {
+}).controller('UserEditRoleFormCtrl', function(${symbol_dollar}scope, ${symbol_dollar}modalInstance, ${symbol_dollar}cacheFactory, Roles, user) {
 	${symbol_dollar}scope.user = user;
 	${symbol_dollar}scope.roles = [];
 

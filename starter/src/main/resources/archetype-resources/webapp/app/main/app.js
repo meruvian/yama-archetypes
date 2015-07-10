@@ -27,10 +27,12 @@ angular.module('${artifactId}App', [
 	'validation.rule',
 	'validation.schema',
 	'yamaOauth'
-]).config(function (${symbol_dollar}locationProvider, $urlRouterProvider) {
-	${symbol_dollar}locationProvider.html5Mode(false).hashPrefix('!');
+]).config(function (${symbol_dollar}locationProvider, ${symbol_dollar}urlRouterProvider, ${symbol_dollar}urlMatcherFactoryProvider) {
+	${symbol_dollar}locationProvider.html5Mode(true).hashPrefix('!');
 
-	$urlRouterProvider.otherwise('/');
+	${symbol_dollar}urlRouterProvider.otherwise('/');
+
+	${symbol_dollar}urlMatcherFactoryProvider.strictMode(false);
 }).config(function(${symbol_dollar}httpProvider, RestangularProvider, uiSelectConfig) {
 	RestangularProvider.setBaseUrl('/api');
 	RestangularProvider.setDefaultHttpFields({cache: false});
@@ -97,11 +99,15 @@ angular.module('${artifactId}App', [
 		}
 	}
 
-	${symbol_dollar}rootScope.$on('oauth:unauthorized', function() {
+	${symbol_dollar}rootScope.${symbol_dollar}on('oauth:unauthorized', function() {
 		YamaOAuth.login();
 	});
 
-	${symbol_dollar}rootScope.$on('${symbol_dollar}stateChangeStart', function(event, toState, toParams) {
+	${symbol_dollar}rootScope.${symbol_dollar}on('oauth:logout', function() {
+		YamaOAuth.login();
+	});
+
+	${symbol_dollar}rootScope.${symbol_dollar}on('${symbol_dollar}stateChangeStart', function(event, toState, toParams) {
 		if (!YamaOAuth.isAuthorized()) {
 			event.preventDefault();
 

@@ -6,17 +6,17 @@ package ${package}.webapi.config;
 
 import javax.inject.Inject;
 
-import ${package}.core.user.User;
-import ${package}.social.connection.SocialConnectionRepository;
-import ${package}.social.core.SocialConnectionService;
-import ${package}.social.core.SocialServiceLocator;
-import ${package}.social.core.SocialServiceRegistry;
-import ${package}.social.core.SocialUsersConnectionService;
-import ${package}.social.facebook.FacebookService;
-import ${package}.social.google.GooglePlusService;
-import ${package}.social.mervid.MervidService;
-import ${package}.social.mervid.connect.MervidConnectionFactory;
-import ${package}.web.SessionCredentials;
+import org.meruvian.yama.core.user.User;
+import org.meruvian.yama.social.connection.SocialConnectionRepository;
+import org.meruvian.yama.social.core.SocialConnectionService;
+import org.meruvian.yama.social.core.SocialServiceLocator;
+import org.meruvian.yama.social.core.SocialServiceRegistry;
+import org.meruvian.yama.social.core.SocialUsersConnectionService;
+import org.meruvian.yama.social.facebook.FacebookService;
+import org.meruvian.yama.social.google.GooglePlusService;
+import org.meruvian.yama.social.mervid.MervidService;
+import org.meruvian.yama.social.mervid.connect.MervidConnectionFactory;
+import org.meruvian.yama.web.SessionCredentials;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;

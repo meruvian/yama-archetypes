@@ -21,8 +21,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import ${package}.core.role.Role;
-import ${package}.core.user.User;
+import org.meruvian.yama.core.role.Role;
+import org.meruvian.yama.core.user.User;
 import ${package}.webapi.interceptor.DetectCurrentUser;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

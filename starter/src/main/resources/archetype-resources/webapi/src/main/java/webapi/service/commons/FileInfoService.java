@@ -15,8 +15,8 @@ import javax.transaction.Transactional;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import ${package}.core.commons.FileInfo;
-import ${package}.core.commons.FileInfoRepository;
+import org.meruvian.yama.core.commons.FileInfo;
+import org.meruvian.yama.core.commons.FileInfoRepository;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;

@@ -12,9 +12,9 @@ describe('Controller: ApplicationCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, ${symbol_dollar}rootScope) {
-    scope = ${symbol_dollar}rootScope.$new();
-    ApplicationCtrl = $controller('ApplicationCtrl', {
+  beforeEach(inject(function (${symbol_dollar}controller, ${symbol_dollar}rootScope) {
+    scope = ${symbol_dollar}rootScope.${symbol_dollar}new();
+    ApplicationCtrl = ${symbol_dollar}controller('ApplicationCtrl', {
       ${symbol_dollar}scope: scope
     });
   }));

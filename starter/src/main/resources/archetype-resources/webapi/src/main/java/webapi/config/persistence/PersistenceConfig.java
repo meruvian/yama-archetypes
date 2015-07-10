@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EntityScan({ "${package}" })
-@EnableJpaRepositories({ "${package}" })
+@EntityScan({ "org.meruvian.yama", "${package}" })
+@EnableJpaRepositories({ "org.meruvian.yama", "${package}" })
 public class PersistenceConfig {
 }

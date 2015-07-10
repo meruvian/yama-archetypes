@@ -6,15 +6,15 @@
 describe('Controller: RoleCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('${artifactId}App'));
+  beforeEach(module('${artifactId}AppApp'));
 
   var RoleCtrl,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, ${symbol_dollar}rootScope) {
-    scope = ${symbol_dollar}rootScope.$new();
-    RoleCtrl = $controller('RoleCtrl', {
+  beforeEach(inject(function (${symbol_dollar}controller, ${symbol_dollar}rootScope) {
+    scope = ${symbol_dollar}rootScope.${symbol_dollar}new();
+    RoleCtrl = ${symbol_dollar}controller('RoleCtrl', {
       ${symbol_dollar}scope: scope
     });
   }));

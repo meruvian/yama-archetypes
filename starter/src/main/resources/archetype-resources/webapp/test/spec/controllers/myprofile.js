@@ -12,9 +12,9 @@ describe('Controller: MyprofileCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, ${symbol_dollar}rootScope) {
-    scope = ${symbol_dollar}rootScope.$new();
-    MyprofileCtrl = $controller('MyprofileCtrl', {
+  beforeEach(inject(function (${symbol_dollar}controller, ${symbol_dollar}rootScope) {
+    scope = ${symbol_dollar}rootScope.${symbol_dollar}new();
+    MyprofileCtrl = ${symbol_dollar}controller('MyprofileCtrl', {
       ${symbol_dollar}scope: scope
     });
   }));

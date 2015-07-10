@@ -6,7 +6,7 @@ package ${package}.webapi.config;
 
 import javax.inject.Inject;
 
-import ${package}.web.security.DefaultUserDetailsService;
+import org.meruvian.yama.web.security.DefaultUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
