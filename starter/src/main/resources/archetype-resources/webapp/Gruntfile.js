@@ -1,7 +1,4 @@
 // Generated on 2015-02-16 using generator-angular 0.11.1
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 'use strict';
 
 // # Globbing
